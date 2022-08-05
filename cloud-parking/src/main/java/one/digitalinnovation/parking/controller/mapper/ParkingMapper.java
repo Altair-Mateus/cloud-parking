@@ -1,5 +1,6 @@
 package one.digitalinnovation.parking.controller.mapper;
 
+import one.digitalinnovation.parking.controller.dto.ParkingCreateDTO;
 import one.digitalinnovation.parking.controller.dto.ParkingDTO;
 import one.digitalinnovation.parking.model.Parking;
 import org.modelmapper.ModelMapper;
@@ -22,5 +23,16 @@ public class ParkingMapper {
 
         return parkingList.stream().map(this::toParkingDTO).collect(Collectors.toList());
 
+    }
+
+    public Parking toParking(ParkingDTO dto)
+    {
+        return MODEL_MAPPER.map(dto, Parking.class);
+
+    }
+
+    public Parking toParkingCreate(ParkingCreateDTO dto)
+    {
+        return MODEL_MAPPER.map(dto, Parking.class);
     }
 }
