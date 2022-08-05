@@ -44,6 +44,7 @@ public class ParkingController {
     {
 
         Parking parking = parkingService.findById(id);
+
         ParkingDTO result = parkingMapper.toParkingDTO(parking);
 
         return ResponseEntity.ok(result);
