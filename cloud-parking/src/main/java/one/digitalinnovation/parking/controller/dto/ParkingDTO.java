@@ -1,9 +1,8 @@
-package one.digitalinnovation.parking.model;
+package one.digitalinnovation.parking.controller.dto;
 
 import java.time.LocalDateTime;
 
-public class Parking
-{
+public class ParkingDTO {
 
     private String id;
     private String license;
@@ -14,21 +13,6 @@ public class Parking
     private LocalDateTime exitDate;
     private Double bill;
 
-    public Parking()
-    {
-
-    }
-
-    public Parking(String id, String license, String state, String model, String color)
-    {
-        this.id = id;
-        this.license = license;
-        this.state = state;
-        this.model = model;
-        this.color = color;
-    }
-
-    // Getters e Setters
     public String getId() {
         return id;
     }
