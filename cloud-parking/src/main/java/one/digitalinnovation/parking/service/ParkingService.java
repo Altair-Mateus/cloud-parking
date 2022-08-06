@@ -27,10 +27,10 @@ public class ParkingService {
     @Transactional
     public List<Parking> findAll()
     {
-
         return parkingRepository.findAll();
-
     }
+
+
 
     private static String getUUID()
     {
@@ -38,6 +38,7 @@ public class ParkingService {
     }
 
 
+    @Transactional
     public Parking findById(String id)
     {
 

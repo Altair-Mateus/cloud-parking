@@ -1,4 +1,4 @@
-package one.digitalinnovation.parking;
+package one.digitalinnovation;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;

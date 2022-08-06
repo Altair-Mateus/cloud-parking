@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/parking")
-@Api(tags = "ParkingController")
+@Api(tags = "Parking Controller")
 public class ParkingController {
 
     private final ParkingService parkingService;
@@ -57,9 +57,8 @@ public class ParkingController {
     {
 
         var parkingCreate = parkingMapper.toParkingCreate(dto);
-
-        Parking parking = parkingService.create(parkingCreate);
-        ParkingDTO result = parkingMapper.toParkingDTO(parking);
+        var parking = parkingService.create(parkingCreate);
+        var result = parkingMapper.toParkingDTO(parking);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
 
