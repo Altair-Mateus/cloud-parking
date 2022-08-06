@@ -5,6 +5,7 @@ import one.digitalinnovation.parking.model.Parking;
 import one.digitalinnovation.parking.repository.ParkingRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.security.PrivateKey;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -23,6 +24,7 @@ public class ParkingService {
         this.parkingRepository = parkingRepository;
     }
 
+    @Transactional
     public List<Parking> findAll()
     {
 
@@ -35,6 +37,7 @@ public class ParkingService {
         return UUID.randomUUID().toString().replace("-", "");
     }
 
+
     public Parking findById(String id)
     {
 
@@ -43,6 +46,7 @@ public class ParkingService {
 
     }
 
+    @Transactional
     public Parking create(Parking parkingCreate)
     {
         String uuid = getUUID();
@@ -56,6 +60,7 @@ public class ParkingService {
         return parkingCreate;
     }
 
+    @Transactional
     public void delete(String id)
     {
         findById(id);
@@ -65,6 +70,7 @@ public class ParkingService {
 
     }
 
+    @Transactional
     public Parking update(String id, Parking parkingCreate)
     {
         Parking parking = findById(id);
@@ -80,9 +86,16 @@ public class ParkingService {
 
     }
 
-    public Parking exit(String id)
+    @Transactional
+    public Parking checkOut(String id)
     {
-        return null;
+        Parking parking = findById(id);
+        parking.setExitDate(LocalDateTime.now());
+
+        parking.setBill(ParkingCheckOut.getBill(parking));
+        parkingRepository.save(parking);
+
+        return parking;
     }
 
 }
