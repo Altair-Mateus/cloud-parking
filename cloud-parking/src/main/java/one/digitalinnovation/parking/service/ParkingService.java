@@ -80,11 +80,8 @@ public class ParkingService {
 
     }
 
-    /*public Parking exit(String id) {
-        Parking parking = findById(id);
-        parking.setExitDate(LocalDateTime.now());
-        parking.setBill(ParkingCheckOut.getBill(parking));
-        parkingRepository.save(parking);
-        return parking;
-    }*/
+    public Parking exit(String id) {
+        return null;
+    }
+
 }
