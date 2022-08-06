@@ -90,6 +90,8 @@ public class Parking
     }
 
     public void setBill(Double bill) {
+
         this.bill = bill;
     }
+
 }
